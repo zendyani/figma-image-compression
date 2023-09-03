@@ -114,6 +114,6 @@ To get started with this project, follow these steps:
 
 Feel free to customize and extend this project to suit your specific needs.
 
-If you have any questions or need further assistance, please refer to the documentation .
+If you have any questions or need further assistance, please refer to [the official Figma documentation](https://www.figma.com/plugin-docs/) .
 
 Happy coding!
