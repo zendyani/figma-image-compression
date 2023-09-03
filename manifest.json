@@ -1,6 +1,6 @@
 {
-  "name": "React Sample",
-  "id": "react-sample",
+  "name": "Images optimizer",
+  "id": "image-optimozer",
   "api": "1.0.0",
   "editorType": ["figma", "figjam"],
   "permissions": [],

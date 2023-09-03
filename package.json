@@ -15,7 +15,7 @@
     "build:watch": "concurrently -n widget,iframe \"npm run build:main -- --watch\" \"npm run build:ui -- --watch\"",
     "dev": "concurrently -n tsc,build,vite 'npm:tsc:watch' 'npm:build:watch' 'vite'"
   },
-  "author": "Figma",
+  "author": "Jalil",
   "license": "MIT License",
   "dependencies": {
     "react": "^18.2.0",
