@@ -1,6 +1,5 @@
 import React from "react";
-import CheckSuccess from "../img/icons/check-success.svg?raw";
-import Icon12 from "../img/icons/icon-12.svg?raw";
+import {AiOutlineLoading3Quarters, AiOutlineCheck} from "react-icons/ai"
 import "./Image.css";
 
 interface Props {
@@ -31,16 +30,8 @@ const ImageItem = ({id,  name, ext, size, checked, onSelected }: Props) => {
         <h6 className="h6 second-text-color" style={{ marginLeft: "15px" }}>
           {size.toUpperCase()}
         </h6>
-        <img
-          className="rotate loading-icon"
-          src={`data:image/svg+xml;utf8,${Icon12}`}
-          alt=""
-        />
-        <img
-          className="success-icon"
-          src={`data:image/svg+xml;utf8,${CheckSuccess}`}
-          alt=""
-        />
+        <AiOutlineLoading3Quarters className="rotate loading-icon"/>
+        <AiOutlineCheck className="success-icon"/>
       </div>
     </div>
   );

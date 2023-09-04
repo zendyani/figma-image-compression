@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ImageItem from "./ImageItem";
 import Image from "../entities/Image";
 import useSelection from "../hooks/UseSelection";

@@ -1,5 +1,5 @@
 import React from "react";
-import Icon61 from "../img/icons/icon-61.svg?raw";
+import { HiDownload } from 'react-icons/hi'
 
 const DownloadAllButton = () => {
   return (
@@ -10,7 +10,7 @@ const DownloadAllButton = () => {
     >
       <h6 className="h6 text-color"></h6>
       <button className="btn success-color active" id="download-all">
-        <img src={`data:image/svg+xml;utf8,${Icon61}`} />
+        <HiDownload />
         <span
           className="btn-text light-text-color"
           style={{ marginLeft: "5px" }}
