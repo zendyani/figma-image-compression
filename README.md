@@ -3,7 +3,6 @@
 This is boilerplate project used to speedup working on a Figma plugin.
 The starting point of this repo was from [esbuild-react](https://github.com/figma/plugin-samples/tree/master/esbuild-react)
 
-
 This README file provides an overview of the project's structure, available scripts, dependencies, and other relevant information.
 
 ## Project Information
@@ -28,51 +27,61 @@ This project has the following directory structure:
 This project includes several npm scripts that facilitate various tasks. You can run these scripts using the `npm run` command followed by the script name. Here are the available scripts:
 
 - **test**: Run TypeScript compilation and build tasks.
+
   ```
   npm run test
   ```
 
 - **format**: Format the project code using Prettier.
+
   ```
   npm run format
   ```
 
 - **tsc**: Run TypeScript compilation for the main and UI source code.
+
   ```
   npm run tsc
   ```
 
 - **tsc:main**: Compile the main source code using TypeScript.
+
   ```
   npm run tsc:main
   ```
 
 - **tsc:ui**: Compile the UI source code using TypeScript.
+
   ```
   npm run tsc:ui
   ```
 
 - **tsc:watch**: Watch and compile TypeScript source code for both main and UI.
+
   ```
   npm run tsc:watch
   ```
 
 - **build**: Build the project, minifying the output.
+
   ```
   npm run build
   ```
 
 - **build:main**: Build the main source code using esbuild.
+
   ```
   npm run build:main
   ```
 
 - **build:ui**: Build the UI using Vite and esbuild.
+
   ```
   npm run build:ui
   ```
 
 - **build:watch**: Watch and build both the main and UI source code.
+
   ```
   npm run build:watch
   ```
@@ -87,6 +96,7 @@ This project includes several npm scripts that facilitate various tasks. You can
 This project has both runtime and development dependencies. Here are the key dependencies:
 
 - **Runtime Dependencies**:
+
   - react: React library.
   - react-dom: React DOM library.
 
