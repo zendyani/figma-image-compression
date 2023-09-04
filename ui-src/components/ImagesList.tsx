@@ -9,7 +9,6 @@ interface Props {
 
 const ImagesList = ({ images }: Props) => {
   const {selectedImg, imagesState, checkAll, updateSelection} = useSelection(images);
-
   return (
     <>
       <div

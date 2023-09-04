@@ -5,7 +5,12 @@ const UseSelection = (images: Image[]) => {
   // State to keep track of the number of selected images
   const [selectedImg, setSelectedImg] = useState(0);
   // State to keep track of the images and their selection status
-  const [imagesState, setImagesState] = useState<Image[]>([...images]);
+  const [imagesState, setImagesState] = useState<Image[]>([]);
+
+  // Effect to update imagesState whenever images prop changes
+  useEffect(() => {
+    setImagesState(images);
+  }, [images]);
 
   // Effect to update the selected image count when the imagesState changes
   useEffect(() => {
@@ -35,7 +40,12 @@ const UseSelection = (images: Image[]) => {
     setImagesState(updatedImages);
   };
 
-  return { selectedImg, imagesState, checkAll, updateSelection };
+  return {
+    selectedImg,
+    imagesState,
+    checkAll,
+    updateSelection,
+  };
 };
 
 export default UseSelection;

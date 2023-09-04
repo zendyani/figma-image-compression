@@ -26,9 +26,9 @@ const ImageItem = ({id,  name, ext, size, checked, onSelected }: Props) => {
       </div>
 
       <div className="image-details">
-        <small className="small second-text-color">{ext.toUpperCase()}</small>
+        <small className="small second-text-color">{ext?.toUpperCase()}</small>
         <h6 className="h6 second-text-color" style={{ marginLeft: "15px" }}>
-          {size.toUpperCase()}
+          {size?.toUpperCase()}
         </h6>
         <AiOutlineLoading3Quarters className="rotate loading-icon"/>
         <AiOutlineCheck className="success-icon"/>
