@@ -3,5 +3,8 @@ export default interface Image {
   name: string;
   ext: string;
   size: string;
+  image: Uint8Array;
+  suffix?: string;
+  scale?: string;
   checked: boolean;
 }
