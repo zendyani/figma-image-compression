@@ -4,17 +4,25 @@ import Icon12 from "../img/icons/icon-12.svg?raw";
 import "./Image.css";
 
 interface Props {
+  id: number;
   name: string;
   ext: string;
   size: string;
+  checked: boolean;
+  onSelected: (id: number, val: boolean) => void
 }
 
-const ImageItem = ({ name, ext, size }: Props) => {
+const ImageItem = ({id,  name, ext, size, checked, onSelected }: Props) => {
+  
   return (
     <div className="image-container">
       <div className="form-check">
         <label className="form-check-label second-text-color">
-          <input className="form-check-input" type="checkbox" /> {name}
+          <input className="form-check-input" type="checkbox"
+            onChange={(e) => onSelected(id, e.target.checked)}
+            checked={checked}
+          />
+          {name}
         </label>
       </div>
 

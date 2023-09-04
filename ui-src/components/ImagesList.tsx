@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ImageItem from "./ImageItem";
 import Image from "../entities/Image";
+import useSelection from "../hooks/UseSelection";
 
 interface Props {
   images: Image[];
 }
 
 const ImagesList = ({ images }: Props) => {
-  const [selectedImg, setSelectedImg] = useState(0);
+  const {selectedImg, imagesState, checkAll, updateSelection} = useSelection(images);
 
   return (
     <>
@@ -20,19 +21,21 @@ const ImagesList = ({ images }: Props) => {
             className="form-check-input"
             id="flexCheckDefault"
             type="checkbox"
+            onChange={(e) => checkAll(e.target.checked)}
+            checked={selectedImg === imagesState.length}
           />
           <label
             className="form-check-label second-text-color"
             htmlFor="flexCheckDefault"
             id="selected-images"
           >
-            0 of {selectedImg} Selected
+            {selectedImg} of {imagesState.length} Selected
           </label>
         </div>
       </div>
       <div className="d-flex flex-column justify-content-start align-items-start w-100 light-background-color">
-        {images.map((image) => (
-          <ImageItem {...image} />
+        {imagesState.map((image) => (
+          <ImageItem key={image.id} {...image} onSelected={updateSelection} />
         ))}
       </div>
     </>
