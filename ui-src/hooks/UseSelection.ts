@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Image from "../entities/Image";
+import Image from "../../shared/entities/Image";
 
 const UseSelection = (images: Image[]) => {
   // State to keep track of the number of selected images

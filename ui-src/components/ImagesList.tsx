@@ -1,6 +1,6 @@
 import React from "react";
 import ImageItem from "./ImageItem";
-import Image from "../entities/Image";
+import Image from "../../shared/entities/Image";
 import useSelection from "../hooks/UseSelection";
 
 interface Props {
