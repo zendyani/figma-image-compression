@@ -3,7 +3,7 @@ import "./App.css";
 import Menu from "./components/Menu";
 import DownloadAllButton from "./components/DownloadAllButton";
 import ImagesList from "./components/ImagesList";
-import Image from "./entities/Image";
+import Image from "../shared/entities/Image";
 
 interface EventData {
   data: {
