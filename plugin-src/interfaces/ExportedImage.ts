@@ -3,4 +3,5 @@ export default interface ExportedImage {
     ext: string;
     image: Uint8Array;
     name: string;
+    suffix?: string;
   }
