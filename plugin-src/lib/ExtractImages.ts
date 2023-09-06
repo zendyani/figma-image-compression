@@ -17,6 +17,7 @@ export default async function ExtractImages(node: SceneNode): Promise<ExportedIm
         ext: ext,
         image: image,
         name: node.name,
+        suffix: suffix,
       });
     }
   }

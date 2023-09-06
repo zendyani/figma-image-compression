@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import {AiOutlineLoading3Quarters, AiOutlineCheck} from "react-icons/ai"
 import "./Image.css";
 import { ImageSize } from "../services/ImageTools";
+import slugify from 'slugify'
 
 interface Props {
   id: number;
   name: string;
   ext: string;
   size: string;
+  suffix?: string;
   image: Uint8Array;
   checked: boolean;
   onSelected: (id: number, val: boolean) => void
 }
 
-const ImageItem = ({id,  name, ext, size, image, checked, onSelected }: Props) => {
+const ImageItem = ({id,  name, ext, size, image, suffix, checked, onSelected }: Props) => {
   const [imgSize, setImgSize] = useState('')
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const ImageItem = ({id,  name, ext, size, image, checked, onSelected }: Props) =
             onChange={(e) => onSelected(id, e.target.checked)}
             checked={checked}
           />
-          {name}
+          {slugify(`${name}-${suffix}`)}
         </label>
       </div>
 
