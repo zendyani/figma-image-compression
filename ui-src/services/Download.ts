@@ -2,6 +2,7 @@ import Image from "../../shared/entities/Image";
 
 const downloadAll = (images: Image[]) => {
     /**
+     * - Disable button
      * - Check Image information
      * - Send to compression service
      * - Add the result to the zip file

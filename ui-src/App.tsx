@@ -21,8 +21,10 @@ function App() {
   useEffect(() => {
     const handleMessage = (event: EventData) => {
       // Handle the received data here
-      const { data } = event.data.pluginMessage;
-      setImages(data.images.flat())
+      if (event.data.pluginMessage) {
+        const { data } = event.data.pluginMessage;
+        setImages(data.images.flat());
+      }
     };
 
     window.addEventListener('message', handleMessage);
@@ -41,7 +43,6 @@ function App() {
         id="images_container"
       >
         <ImagesList images={images} />
-        <DownloadAllButton />
       </div>
     </>
   );

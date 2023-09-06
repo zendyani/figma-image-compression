@@ -4,7 +4,9 @@ export default interface Image {
   ext: string;
   size: string;
   image: Uint8Array;
+  dataUrl: string;
+  checked: boolean;
   suffix?: string;
   scale?: string;
-  checked: boolean;
+  loading?: boolean;
 }

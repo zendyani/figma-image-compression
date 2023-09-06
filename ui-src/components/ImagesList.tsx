@@ -2,13 +2,14 @@ import React from "react";
 import ImageItem from "./ImageItem";
 import Image from "../../shared/entities/Image";
 import useSelection from "../hooks/UseSelection";
+import DownloadAllButton from "./DownloadAllButton";
 
 interface Props {
   images: Image[];
 }
 
 const ImagesList = ({ images }: Props) => {
-  const {selectedImg, imagesState, checkAll, updateSelection} = useSelection(images);
+  const {selectedImg, imagesState, checkAll, updateSelection, updateLoading} = useSelection(images);
   return (
     <>
       <div
@@ -37,6 +38,7 @@ const ImagesList = ({ images }: Props) => {
           <ImageItem key={image.id} {...image} onSelected={updateSelection} />
         ))}
       </div>
+      <DownloadAllButton images={imagesState} updateLoading={updateLoading}/>
     </>
   );
 };

@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {AiOutlineLoading3Quarters, AiOutlineCheck} from "react-icons/ai"
+import { AiOutlineLoading3Quarters, AiOutlineCheck } from "react-icons/ai"
 import "./Image.css";
 import { ImageSize } from "../services/ImageTools";
 import slugify from 'slugify'
+import Image from "../../shared/entities/Image";
 
-interface Props {
-  id: number;
-  name: string;
-  ext: string;
-  size: string;
-  suffix?: string;
-  image: Uint8Array;
-  checked: boolean;
+interface Props extends Image {
   onSelected: (id: number, val: boolean) => void
 }
 
-const ImageItem = ({id,  name, ext, size, image, suffix, checked, onSelected }: Props) => {
+const ImageItem = ({ id, name, ext, image, suffix, checked, loading, onSelected }: Props) => {
   const [imgSize, setImgSize] = useState('')
 
   useEffect(() => {
@@ -23,6 +17,8 @@ const ImageItem = ({id,  name, ext, size, image, suffix, checked, onSelected }: 
       setImgSize(res)
     });
   }, [])
+
+  // console.log(name, loading)
 
   return (
     <div className="image-container">
@@ -41,8 +37,11 @@ const ImageItem = ({id,  name, ext, size, image, suffix, checked, onSelected }: 
         <h6 className="h6 second-text-color" style={{ marginLeft: "15px" }}>
           {imgSize} MB
         </h6>
-        <AiOutlineLoading3Quarters className="rotate loading-icon"/>
-        <AiOutlineCheck className="success-icon"/>
+        {loading ? (
+          <AiOutlineLoading3Quarters className="rotate loading-icon" />
+        ) : (
+          <AiOutlineCheck className="success-icon" />
+        )}
       </div>
     </div>
   );
