@@ -31,6 +31,18 @@ const UseSelection = (images: Image[]) => {
     setImagesState(updatedImages);
   };
 
+  const updateLoading = (id: number, val: boolean) => {
+    const updatedImages = imagesState.map(image => {
+      if (image.id === id) {
+        return {...image, loading: val}
+      }
+      return image
+    })
+    // console.log(updatedImages)
+    // Update the imagesState with the new array
+    setImagesState(updatedImages);
+  }
+
   // Function to toggle the selection status of all images
   const checkAll = (val: boolean) => {
     const updatedImages = imagesState.map((image) => ({
@@ -45,6 +57,7 @@ const UseSelection = (images: Image[]) => {
     imagesState,
     checkAll,
     updateSelection,
+    updateLoading
   };
 };
 
