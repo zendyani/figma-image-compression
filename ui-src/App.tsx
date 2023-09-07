@@ -4,6 +4,7 @@ import Menu from "./components/Menu";
 import DownloadAllButton from "./components/DownloadAllButton";
 import ImagesList from "./components/ImagesList";
 import Image from "../shared/entities/Image";
+import HelpNotice from "./components/HelpNotice";
 
 interface EventData {
   data: {
@@ -37,7 +38,8 @@ function App() {
 
   return (
     <>
-      <Menu />
+      {/* <Menu /> */}
+      <HelpNotice />
       <div
         className="d-flex flex-column justify-content-start align-items-start w-100 page-container"
         id="images_container"

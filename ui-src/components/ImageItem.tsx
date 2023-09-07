@@ -18,8 +18,6 @@ const ImageItem = ({ id, name, ext, image, suffix, checked, loading, onSelected 
     });
   }, [])
 
-  // console.log(name, loading)
-
   return (
     <div className="image-container">
       <div className="form-check">
@@ -37,11 +35,11 @@ const ImageItem = ({ id, name, ext, image, suffix, checked, loading, onSelected 
         <h6 className="h6 second-text-color" style={{ marginLeft: "15px" }}>
           {imgSize} MB
         </h6>
-        {loading ? (
+        {loading === true ? (
           <AiOutlineLoading3Quarters className="rotate loading-icon" />
-        ) : (
+        ) : loading === false ? (
           <AiOutlineCheck className="success-icon" />
-        )}
+        ): (null)}
       </div>
     </div>
   );
