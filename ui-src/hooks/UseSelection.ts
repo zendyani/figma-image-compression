@@ -38,7 +38,7 @@ const UseSelection = (images: Image[]) => {
       }
       return image
     })
-    // console.log(updatedImages)
+    
     // Update the imagesState with the new array
     setImagesState(updatedImages);
   }
