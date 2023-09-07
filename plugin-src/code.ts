@@ -16,20 +16,5 @@ figma.ui.onmessage = async (msg) => {
   if (msg.type === "compress") {
     await ExtractImagesFromSelection();
   }
-
-  // if (msg.type === "exportNode") {
-  //   const { id, node, exportSetting } = msg.data;
-  //   const frame = figma.getNodeById(node.id) as FrameNode;
-
-  //   const image = await frame.exportAsync(exportSetting);
-
-  //   figma.ui.postMessage({
-  //     type: "manageExportedNode",
-  //     data: {
-  //       id: id,
-  //       image: image,
-  //     },
-  //   });
-  // }
 };
 
