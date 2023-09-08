@@ -1820,6 +1820,12 @@ fieldset:disabled .btn {
   line-height: 24px;
 }
 /*color style*/
+.icon-loading-color {
+  color: #23a6f0;
+}
+.icon-success-color {
+  color: #40bb15;
+}
 .primary-color {
   background-color: #23a6f0;
   color: #fff;

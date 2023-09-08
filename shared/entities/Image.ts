@@ -3,10 +3,7 @@ export default interface Image {
   name: string;
   ext: string;
   size: string;
-  image: Uint8Array;
-  dataUrl: string;
-  checked: boolean;
+  raw: Uint8Array;
   suffix?: string;
   scale?: string;
-  loading?: boolean;
 }

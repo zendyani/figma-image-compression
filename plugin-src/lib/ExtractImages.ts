@@ -15,7 +15,7 @@ export default async function ExtractImages(node: SceneNode): Promise<ExportedIm
       images.push({
         id: Date.now(),
         ext: ext,
-        image: image,
+        raw: image,
         name: node.name,
         suffix: suffix,
       });

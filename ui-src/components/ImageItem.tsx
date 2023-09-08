@@ -3,13 +3,11 @@ import { AiOutlineLoading3Quarters, AiOutlineCheck } from "react-icons/ai"
 import "./Image.css";
 import { ImageSize } from "../services/ImageTools";
 import slugify from 'slugify'
-import Image from "../../shared/entities/Image";
+import ImagesState from "../intrerfaces/ImagesState";
+import useImagesStore from "../store";
 
-interface Props extends Image {
-  onSelected: (id: number, val: boolean) => void
-}
-
-const ImageItem = ({ id, name, ext, image, suffix, checked, loading, onSelected }: Props) => {
+const ImageItem = ({ id, name, ext, raw: image, suffix, checked, loading }: ImagesState) => {
+  const { updateProperty } = useImagesStore()
   const [imgSize, setImgSize] = useState('')
 
   useEffect(() => {
@@ -23,7 +21,7 @@ const ImageItem = ({ id, name, ext, image, suffix, checked, loading, onSelected 
       <div className="form-check">
         <label className="form-check-label second-text-color">
           <input className="form-check-input" type="checkbox"
-            onChange={(e) => onSelected(id, e.target.checked)}
+            onChange={(e) => updateProperty(id, 'checked', e.target.checked)}
             checked={checked}
           />
           {slugify(`${name}-${suffix}`)}
@@ -36,10 +34,10 @@ const ImageItem = ({ id, name, ext, image, suffix, checked, loading, onSelected 
           {imgSize} MB
         </h6>
         {loading === true ? (
-          <AiOutlineLoading3Quarters className="rotate loading-icon" />
+          <AiOutlineLoading3Quarters className="rotate loading-icon icon-loading-color" />
         ) : loading === false ? (
-          <AiOutlineCheck className="success-icon" />
-        ): (null)}
+          <AiOutlineCheck color="green" className="success-icon icon-success-color" />
+        ) : (null)}
       </div>
     </div>
   );
