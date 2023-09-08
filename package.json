@@ -1,7 +1,7 @@
 {
-  "name": "demo",
+  "name": "figma-export-compressed-images",
   "version": "1.0.0",
-  "description": "Utilizing Vite to bundle React with TypeScript.",
+  "description": "Figma plugin to export compressed images.",
   "scripts": {
     "test": "npm run tsc && npm run build",
     "format": "prettier --write .",
