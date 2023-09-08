@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getFileDataUrl } from "./ImageTools";
 import Image from "../../shared/entities/Image";
+import slugify from "slugify";
 
 interface ImageData {
   id: number;
@@ -16,12 +17,12 @@ class ImageService {
   });
 
   compress = async (image: Image) => {
-    const tblob = new Blob([image.image.buffer]);
+    const tblob = new Blob([image.raw.buffer]);
     const dataUrl = await getFileDataUrl(tblob);
 
     const body: ImageData = {
       id: image.id,
-      name: image.name,
+      name: slugify(`${image.name}`),
       ext: image.ext,
       percent: 90,
       dataUrl: dataUrl,

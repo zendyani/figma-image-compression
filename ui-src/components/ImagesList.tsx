@@ -1,15 +1,13 @@
 import React from "react";
 import ImageItem from "./ImageItem";
-import Image from "../../shared/entities/Image";
-import useSelection from "../hooks/UseSelection";
 import DownloadAllButton from "./DownloadAllButton";
+import useImagesStore from "../store";
 
-interface Props {
-  images: Image[];
-}
+const ImagesList = () => {
 
-const ImagesList = ({ images }: Props) => {
-  const {selectedImg, imagesState, checkAll, updateSelection, updateLoading} = useSelection(images);
+  const { imagesData, checkAll } = useImagesStore()
+  const checkedImages = imagesData.filter(i => i.checked)
+  
   return (
     <>
       <div
@@ -22,23 +20,23 @@ const ImagesList = ({ images }: Props) => {
             id="flexCheckDefault"
             type="checkbox"
             onChange={(e) => checkAll(e.target.checked)}
-            checked={selectedImg === imagesState.length}
+            checked={checkedImages.length === imagesData.length}
           />
           <label
             className="form-check-label second-text-color"
             htmlFor="flexCheckDefault"
             id="selected-images"
           >
-            {selectedImg} of {imagesState.length} Selected
+            {checkedImages.length} of {imagesData.length} Selected
           </label>
         </div>
       </div>
       <div className="d-flex flex-column justify-content-start align-items-start w-100 light-background-color">
-        {imagesState.map((image) => (
-          <ImageItem key={image.id} {...image} onSelected={updateSelection} />
+        {imagesData.map((image) => (
+          <ImageItem key={image.id} {...image} />
         ))}
       </div>
-      <DownloadAllButton images={imagesState} updateLoading={updateLoading}/>
+      <DownloadAllButton />
     </>
   );
 };

@@ -3,25 +3,26 @@ import Image from "../../shared/entities/Image";
 import JSZip from "jszip";
 import ImageService from "../services/ImageService";
 import { b64toBlob } from "../services/ImageTools";
+import useImagesStore from "../store";
 
 const UseDownload = (
-  images: Image[],
-  updateLoading: (id: number, val: boolean) => void
 ) => {
+  const { imagesData, updateProperty } = useImagesStore()
   const [downloading, setDownloading] = useState(false);
   const [error, setError] = useState("");
 
   const download = async () => {
     try {
       setDownloading(true);
-      const selected: Image[] = images.filter((img) => img.checked);
+
+      const selected: Image[] = imagesData.filter((img) => img.checked);
 
       const zip = new JSZip();
 
       // Update loading when compressing
       for (const img of selected) {
         // Update loading when compressing
-        updateLoading(img.id, true);
+        updateProperty(img.id, "loading", true);
 
         const response = await ImageService.compress(img);
         const dataImg = response.dataUrl.split("base64,")[1];
@@ -32,7 +33,7 @@ const UseDownload = (
         });
 
         // Finish loading
-        updateLoading(img.id, false);
+        updateProperty(img.id, "loading", false);
       }
 
       zip.generateAsync({ type: "base64" }).then(function (base64) {
@@ -47,12 +48,17 @@ const UseDownload = (
         URL.revokeObjectURL(blobUrl);
         link.remove();
       });
-
-      
     } catch (error) {
       setError("An error occured when trying to compress the images");
     }
+    
+    // Reset all loading to null
+    for(const img of imagesData) {
+      updateProperty(img.id, 'loading', null)
+    }
+
     setDownloading(false);
+
   };
   return { downloading, download, error };
 };

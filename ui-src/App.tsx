@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Menu from "./components/Menu";
-import DownloadAllButton from "./components/DownloadAllButton";
 import ImagesList from "./components/ImagesList";
 import Image from "../shared/entities/Image";
 import HelpNotice from "./components/HelpNotice";
+import useImagesStore from "./store";
+
 
 interface EventData {
   data: {
@@ -17,14 +18,17 @@ interface EventData {
 }
 
 function App() {
-  const [images, setImages] = useState<Image[]>([])
+  const { setImagesData } = useImagesStore()
 
   useEffect(() => {
     const handleMessage = (event: EventData) => {
       // Handle the received data here
       if (event.data.pluginMessage) {
         const { data } = event.data.pluginMessage;
-        setImages(data.images.flat());
+
+        // Add states properties to images
+        const flattenedImage = data.images.flat().map(img => ({ ...img, checked: false, loading: null }));
+        setImagesData(flattenedImage)
       }
     };
 
@@ -40,11 +44,8 @@ function App() {
     <>
       {/* <Menu /> */}
       <HelpNotice />
-      <div
-        className="d-flex flex-column justify-content-start align-items-start w-100 page-container"
-        id="images_container"
-      >
-        <ImagesList images={images} />
+      <div className="d-flex flex-column justify-content-start align-items-start w-100 page-container">
+        <ImagesList />
       </div>
     </>
   );

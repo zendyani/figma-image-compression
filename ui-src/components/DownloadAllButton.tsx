@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { HiDownload } from 'react-icons/hi'
-import Image from "../../shared/entities/Image";
 import useDownload from "../hooks/UseDownload";
 
-interface Props {
-  images: Image[];
-  updateLoading: (id: number, val: boolean) => void;
-}
-
-const DownloadAllButton = ({ images, updateLoading }: Props) => {
-  const {download, downloading, error} = useDownload(images, updateLoading)
+const DownloadAllButton = () => {
+  const {download, downloading, error} = useDownload()
 
   return (
     <div
