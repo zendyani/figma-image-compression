@@ -1,16 +1,13 @@
-# Demo Package
-
-This is boilerplate project used to speedup working on a Figma plugin.
-The starting point of this repo was from [esbuild-react](https://github.com/figma/plugin-samples/tree/master/esbuild-react)
+# Figma plugin to export compressed images 
 
 This README file provides an overview of the project's structure, available scripts, dependencies, and other relevant information.
 
 ## Project Information
 
-- **Name**: demo
+- **Name**: Figma images compressor
 - **Version**: 1.0.0
-- **Description**: Utilizing Vite to bundle React with TypeScript.
-- **Author**: Figma
+- **Description**: Figma plugin to export compressed images .
+- **Author**: Abdeldjalil
 - **License**: MIT License
 
 ## Project Structure
