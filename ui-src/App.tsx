@@ -6,7 +6,6 @@ import Image from "../shared/entities/Image";
 import HelpNotice from "./components/HelpNotice";
 import useImagesStore from "./store";
 
-
 interface EventData {
   data: {
     pluginId: string,
@@ -28,6 +27,9 @@ function App() {
 
         // Add states properties to images
         const flattenedImage = data.images.flat().map(img => ({ ...img, checked: false, loading: null }));
+        
+        console.log(flattenedImage)
+
         setImagesData(flattenedImage)
       }
     };

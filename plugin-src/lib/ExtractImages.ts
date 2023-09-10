@@ -3,14 +3,14 @@ import ExportedImage from "../interfaces/ExportedImage";
 export default async function ExtractImages(node: SceneNode): Promise<ExportedImage[]> {
   const images: ExportedImage[] = [];
   const { exportSettings } = node;
-  for (const param of exportSettings) {
-    const ext = param.format.toLowerCase();
-    const suffix = param.suffix;
-    const scale = 1;
-    // const scale = (param.constraint.type === 'SCALE') ? param.constraint.value : 1
-
-    if (ext !== "svg") {
-      const image = await node.exportAsync(param);
+  for (const exportParam of exportSettings) {
+    const ext = exportParam.format.toLowerCase();
+    const suffix = exportParam.suffix;
+    // const scale = 1;
+    const scale = (exportParam.constraint.type === 'SCALE') ? exportParam.constraint.value : 1
+  
+    if (ext !== "pdf") {
+      const image = await node.exportAsync(exportParam);
 
       images.push({
         id: Date.now(),
@@ -18,6 +18,7 @@ export default async function ExtractImages(node: SceneNode): Promise<ExportedIm
         raw: image,
         name: node.name,
         suffix: suffix,
+        scale: scale
       });
     }
   }

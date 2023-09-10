@@ -4,4 +4,5 @@ export default interface ExportedImage {
     raw: Uint8Array;
     name: string;
     suffix?: string;
+    scale?: number;
   }
