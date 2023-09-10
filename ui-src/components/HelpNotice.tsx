@@ -6,8 +6,9 @@ const HelpNotice = () => {
             style={{ padding: '10px 20px' }}>
             <div className="d-flex flex-row justify-content-start align-items-center">
                 <div className="d-flex flex-column justify-content-start align-items-start" style={{ marginLeft: '10px' }}>
-                    <p className="light-text-color">- Please ensure that each image does not exceed 4 MB.</p>
-                    <p className="light-text-color">- Set export settings for your desired image/frame.</p>
+                    <p className="light-text-color">- Configure export settings for the intended image/frame.</p>
+                    <p className="light-text-color">- Ensure images are under 4 MB in size.</p>
+                    <p className="light-text-color">- Note that PDFs are not supported.</p>
                 </div>
             </div>
         </div>
