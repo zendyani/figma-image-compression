@@ -112,7 +112,7 @@ table {
   border-spacing: 0;
 }
 body {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "arial", sans-serif;
   margin: 0;
   font-size: 1rem;
   font-weight: 400;
@@ -1706,70 +1706,70 @@ fieldset:disabled .btn {
 /*font-size*/
 .h0 {
   font-size: 90px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 90px;
 }
 .h1 {
   font-size: 58px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 80px;
 }
 .h2 {
   font-size: 40px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 50px;
 }
 .h3 {
   font-size: 24px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 32px;
 }
 .h4 {
   font-size: 20px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: normal;
   font-style: normal;
   line-height: 30px;
 }
 .h5 {
   font-size: 16px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 24px;
 }
 .h6 {
   font-size: 14px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 24px;
 }
 .paragr {
   font-size: 14px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: normal;
   font-style: normal;
   line-height: 20px;
 }
 .small {
   font-size: 12px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: normal;
   font-style: normal;
   line-height: 16px;
 }
 .nav-link {
   font-size: 14px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 24px;
@@ -1777,7 +1777,7 @@ fieldset:disabled .btn {
 .btn,
 .btn-text {
   font-size: 14px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 22px;
@@ -1785,14 +1785,14 @@ fieldset:disabled .btn {
 .btn-sm,
 .btn-group-sm > .btn {
   font-size: 14px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 24px;
 }
 .btn-md {
   font-size: 14px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 22px;
@@ -1800,21 +1800,21 @@ fieldset:disabled .btn {
 .btn-lg,
 .btn-group-lg > .btn {
   font-size: 24px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 32px;
 }
 .list {
   font-size: 20px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: normal;
   font-style: normal;
   line-height: 30px;
 }
 .link {
   font-size: 14px;
-  font-family: "Fira Sans";
+  font-family: "arial";
   font-weight: Bold;
   font-style: normal;
   line-height: 24px;
@@ -2202,4 +2202,34 @@ a:hover.light-text-color {
 /*custom style*/
 .tags .btn {
   white-space: nowrap;
+}
+#splashScreen {
+  padding: 50px 0;
+}
+.image-container.danger {
+  border: 1px solid #fa5151;
+  background-color: #ff060617;
+}
+.LoadingBox{
+  background-color: #0a0b1195;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+.LoadingBox .rotateIcon{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -36px;
+  margin-left: -36px;
+  animation: rotation 2s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
