@@ -13,7 +13,8 @@ interface ImageData {
 
 class ImageService {
   http = axios.create({
-    baseURL: "https://figma-compression-plugin.ncodyco.workers.dev",
+    // baseURL: "https://figma-compression-plugin.ncodyco.workers.dev",
+    baseURL: "https://www.captain-design.com/apitest",
   });
 
   compress = async (image: Image) => {
@@ -29,7 +30,7 @@ class ImageService {
     };
 
     return this.http
-      .post<ImageData>("/", body)
+      .post<ImageData>("/compressor", body)
       .then((res) => res.data)
       .catch((err) => {
         throw new Error(err.message);
