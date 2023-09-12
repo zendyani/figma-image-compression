@@ -11,26 +11,38 @@ interface EventData {
     pluginId: string,
     pluginMessage: {
       type: string,
-      data: { images: Image[] }
+      data: {
+        images: Image[],
+        loadingNewSelection: boolean
+      }
     }
   }
 }
 
 function App() {
   const { setImagesData } = useImagesStore()
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const handleMessage = (event: EventData) => {
+
+      console.log(event.data.pluginMessage)
+
       // Handle the received data here
       if (event.data.pluginMessage) {
-        const { data } = event.data.pluginMessage;
-
-        // Add states properties to images
-        const flattenedImage = data.images.flat().map(img => ({ ...img, checked: false, loading: null }));
-        
-        console.log(flattenedImage)
-
-        setImagesData(flattenedImage)
+        const { data, type } = event.data.pluginMessage
+        if (type === 'updateSelection' && data.loadingNewSelection) {
+          // Enable loading
+          setLoading(data.loadingNewSelection)
+        } else {
+          if (data.images) {
+            // Add states properties to images
+            const flattenedImage = data.images?.flat().map(img => ({ ...img, checked: false, loading: null }));
+            setImagesData(flattenedImage)
+          }
+          // Disable loading
+          setLoading(data.loadingNewSelection)
+        }
       }
     };
 
@@ -40,13 +52,14 @@ function App() {
     return () => {
       window.removeEventListener('message', handleMessage);
     };
-  }, []);
+  }, [loading]);
 
   return (
     <>
       {/* <Menu /> */}
       <HelpNotice />
       <div className="d-flex flex-column justify-content-start align-items-start w-100 page-container">
+        {loading && <p>Loading</p>}
         <ImagesList />
       </div>
     </>

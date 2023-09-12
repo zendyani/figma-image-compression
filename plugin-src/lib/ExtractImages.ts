@@ -7,7 +7,7 @@ export default async function ExtractImages(node: SceneNode): Promise<ExportedIm
     const ext = exportParam.format.toLowerCase();
     const suffix = exportParam.suffix;
     // const scale = 1;
-    const scale = (exportParam.constraint.type === 'SCALE') ? exportParam.constraint.value : 1
+    const scale = (exportParam.constraint && exportParam.constraint.type === 'SCALE') ? exportParam.constraint.value : 1
   
     if (ext !== "pdf") {
       const image = await node.exportAsync(exportParam);

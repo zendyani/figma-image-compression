@@ -5,7 +5,15 @@ export default async function ExtractImagesFromSelection() {
     const frame: readonly SceneNode[] = figma.currentPage.selection;
   
     if (frame.length === 0) {
-      throw new Error("You must select a frame");
+      // throw new Error("You must select a frame");
+      figma.ui.postMessage({
+        type: "updateSelection",
+        data: {
+          loadingNewSelection: false,
+          msg: "no frame selected"
+        },
+      });
+      
     }
   
     // The need for double nested array is b/c each image can hav more than on export params
@@ -16,6 +24,7 @@ export default async function ExtractImagesFromSelection() {
       type: "sendCompression",
       data: {
         images: images,
+        loadingNewSelection: false,
       },
     });
   }
