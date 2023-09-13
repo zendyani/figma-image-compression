@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { HiDownload } from 'react-icons/hi'
 import useDownload from "../hooks/UseDownload";
+import useImagesStore from "../store";
 
 const DownloadAllButton = () => {
-  const {download, downloading, error} = useDownload()
+  const { download, downloading } = useDownload()
+  const { error } = useImagesStore();
 
   return (
     <div

@@ -3,7 +3,7 @@ import ExtractImagesFrame from "./ExtractImagesFrame";
 
 export default async function ExtractImagesFromSelection() {
     const frame: readonly SceneNode[] = figma.currentPage.selection;
-  
+
     if (frame.length === 0) {
       // throw new Error("You must select a frame");
       figma.ui.postMessage({
@@ -13,10 +13,9 @@ export default async function ExtractImagesFromSelection() {
           msg: "no frame selected"
         },
       });
-      
     }
-  
-    // The need for double nested array is b/c each image can hav more than on export params
+
+    // The need for double nested array is b/c each image can hav more than on export setting
     const images: ExportedImage[][] = [];
     await ExtractImagesFrame(frame as SceneNode[], images);
   

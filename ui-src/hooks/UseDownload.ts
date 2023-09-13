@@ -6,9 +6,8 @@ import { ImageSize, b64toBlob } from "../services/ImageTools";
 import useImagesStore from "../store";
 
 const UseDownload = () => {
-  const { imagesData, updateProperty } = useImagesStore();
+  const { imagesData, updateProperty, setError } = useImagesStore();
   const [downloading, setDownloading] = useState(false);
-  const [error, setError] = useState("");
 
   const download = async () => {
     try {
@@ -65,7 +64,7 @@ const UseDownload = () => {
 
     setDownloading(false);
   };
-  return { downloading, download, error };
+  return { downloading, download };
 };
 
 export default UseDownload;
