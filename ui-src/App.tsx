@@ -52,14 +52,14 @@ function App() {
     return () => {
       window.removeEventListener('message', handleMessage);
     };
-  }, [loading]);
+  }, []);
 
   return (
     <>
       {/* <Menu /> */}
-      <HelpNotice />
+      {/* <HelpNotice /> */}
       <div className="d-flex flex-column justify-content-start align-items-start w-100 page-container">
-        {loading && <p>Loading</p>}
+        <p>{loading}</p>
         <ImagesList />
       </div>
     </>

@@ -1,15 +1,30 @@
 import React from 'react'
 
-interface Props {
-    title: string;
-    message: string;
+export type ErrorType = "size" | "format"
+
+const errors = {
+    "size": {
+        'title': 'Exceeded Size Limit',
+        'message': 'Ensure image is under 4 MB',
+    },
+    "format": {
+        'title': 'PDF Format not Supported',
+        'message': 'Ensure frame is JPG or PNG',
+    },
 }
 
-const Error = () => {
+interface Props {
+    type: ErrorType;
+}
+
+const Error = ({ type }: Props) => {
     return (
-        <div className="dangerNote danger-color" style={{ padding: '10px 20px' }}>
+        <div className="image-container danger-color" style={{
+            padding: '10px 20px',
+            height: '22px'
+        }}>
             <p className="light-text-color">
-                <strong style={{ fontWeight: '900' }}>Exceeded Size Limitation: </strong>Ensure image is under 4 MB.
+                <strong style={{ fontWeight: '900' }}>{errors[type].title}: </strong>{errors[type].message}.
             </p>
         </div>
     )

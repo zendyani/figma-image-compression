@@ -2233,3 +2233,26 @@ a:hover.light-text-color {
     transform: rotate(359deg);
   }
 }
+
+.image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  height: 50px;
+}
+
+.image-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 50px;
+}
+
+.dangerNote {
+  border: 1px solid red;
+  background-color: #fee9e9;
+}

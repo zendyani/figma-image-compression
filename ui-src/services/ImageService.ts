@@ -29,6 +29,10 @@ class ImageService {
       dataUrl: dataUrl,
     };
 
+    if (image.ext.toLowerCase() === 'svg') {
+      return body;
+    } 
+
     return this.http
       .post<ImageData>("/compressor", body)
       .then((res) => res.data)
