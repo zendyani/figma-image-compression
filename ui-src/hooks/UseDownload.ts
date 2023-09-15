@@ -10,13 +10,13 @@ const UseDownload = () => {
 
   const download = async () => {
     try {
-      setDownloading(true);
-
       const selected: Image[] = imagesData.filter((img) => img.checked);
 
       if (selected.length === 0) {
-        throw new Error("No images selected for download.");
+        return;
       }
+
+      setDownloading(true);
 
       const b64ZipFiles = await handleZipGeneration(selected, updateProperty);
 

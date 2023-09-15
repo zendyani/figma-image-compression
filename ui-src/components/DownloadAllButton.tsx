@@ -5,7 +5,9 @@ import useImagesStore from "../store";
 
 const DownloadAllButton = () => {
   const { download, downloading } = useDownload()
-  const { error } = useImagesStore();
+  const { imagesData, error } = useImagesStore();
+  const selected = imagesData.filter((img) => img.checked).length;
+  const disabled = downloading || selected === 0
 
   return (
     <div
@@ -17,7 +19,7 @@ const DownloadAllButton = () => {
       {error && <p>{error}</p>}
       <button
         className="btn success-color"
-        disabled={downloading}
+        disabled={disabled}
         onClick={() => {
           download()
         }}>
