@@ -1,6 +1,6 @@
 import JSZip from "jszip";
 import Image from "../../shared/entities/Image";
-import { ImageSize } from "./ImageTools";
+import { ImageSize } from "../../shared/ImageTools";
 import ImageService from "../services/ImageService";
 
 /**

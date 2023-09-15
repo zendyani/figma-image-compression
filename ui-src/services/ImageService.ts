@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getFileDataUrl } from "../lib/ImageTools";
+import { getFileDataUrl } from "../../shared/ImageTools";
 import Image from "../../shared/entities/Image";
 import slugify from "slugify";
 

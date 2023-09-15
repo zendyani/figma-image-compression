@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters, AiOutlineCheck } from "react-icons/ai"
-import { ImageSize } from "../lib/ImageTools";
+import { ImageSize } from "../../shared/ImageTools";
 import slugify from 'slugify'
 import ImagesState from "../intrerfaces/ImagesState";
 import useImagesStore from "../store";

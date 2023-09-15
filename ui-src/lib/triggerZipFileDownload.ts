@@ -1,4 +1,4 @@
-import { b64toBlob } from "./ImageTools";
+import { b64toBlob } from "../../shared/ImageTools";
 
 /**
  * Generate and trigger a click event on a link for exporting a zip file
