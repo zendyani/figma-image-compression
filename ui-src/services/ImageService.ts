@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getFileDataUrl } from "./ImageTools";
+import { getFileDataUrl } from "../lib/ImageTools";
 import Image from "../../shared/entities/Image";
 import slugify from "slugify";
 
@@ -32,7 +32,7 @@ class ImageService {
     if (image.ext.toLowerCase() === 'svg') {
       return body;
     } 
-
+    
     return this.http
       .post<ImageData>("/compressor", body)
       .then((res) => res.data)

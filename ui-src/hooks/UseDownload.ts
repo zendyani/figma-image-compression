@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Image from "../../shared/entities/Image";
-import JSZip from "jszip";
-import ImageService from "../services/ImageService";
-import { ImageSize, b64toBlob } from "../services/ImageTools";
 import useImagesStore from "../store";
+import triggerZipFileDownload from "../lib/triggerZipFileDownload";
+import handleZipGeneration from "../lib/handleZipGeneration";
 
 const UseDownload = () => {
   const { imagesData, updateProperty, setError } = useImagesStore();
@@ -15,44 +14,22 @@ const UseDownload = () => {
 
       const selected: Image[] = imagesData.filter((img) => img.checked);
 
-      const zip = new JSZip();
-
-      // Update loading when compressing
-      for (const img of selected) {
-        // Check Size
-        const size = await ImageSize(img.raw)
-
-        if (parseInt(size) <= 4) {
-          // Update loading when compressing
-          updateProperty(img.id, "loading", true);
-
-          const response = await ImageService.compress(img);
-          const dataImg = response.dataUrl.split("base64,")[1];
-
-          // Add the compressed result to the zip files
-          zip.file(`${response.name}${img.suffix}.${response.ext}`, dataImg, {
-            base64: true,
-          });
-
-          // Finish loading
-          updateProperty(img.id, "loading", false);
-        }
+      if (selected.length === 0) {
+        throw new Error("No images selected for download.");
       }
 
-      if (Object.keys(zip.files).length > 0) {
-        zip.generateAsync({ type: "base64" }).then(function (base64) {
-          const blob = b64toBlob(base64, "application/zip");
-          const blobUrl = URL.createObjectURL(blob);
+      const b64ZipFiles = await handleZipGeneration(selected, updateProperty);
 
-          const link = document.createElement("a");
-          link.href = blobUrl;
-          link.download = "export.zip";
-          link.setAttribute("download", "export.zip");
-          link.click();
-          URL.revokeObjectURL(blobUrl);
-          link.remove();
-        });
+      if (b64ZipFiles !== "") {
+        triggerZipFileDownload(b64ZipFiles);
       }
+
+      // Reset all loading to null
+      for (const img of imagesData) {
+        updateProperty(img.id, "loading", null);
+      }
+
+      setDownloading(false);
     } catch (error) {
       setError("An error occured when trying to compress the images");
     }
