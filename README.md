@@ -21,71 +21,71 @@ This project has the following directory structure:
 
 ## Scripts
 
-This project includes several npm scripts that facilitate various tasks. You can run these scripts using the `npm run` command followed by the script name. Here are the available scripts:
+This project includes several npm scripts that facilitate various tasks. You can run these scripts using the `pnpm run` command followed by the script name. Here are the available scripts:
 
 - **test**: Run TypeScript compilation and build tasks.
 
   ```
-  npm run test
+  pnpm run test
   ```
 
 - **format**: Format the project code using Prettier.
 
   ```
-  npm run format
+  pnpm run format
   ```
 
 - **tsc**: Run TypeScript compilation for the main and UI source code.
 
   ```
-  npm run tsc
+  pnpm run tsc
   ```
 
 - **tsc:main**: Compile the main source code using TypeScript.
 
   ```
-  npm run tsc:main
+  pnpm run tsc:main
   ```
 
 - **tsc:ui**: Compile the UI source code using TypeScript.
 
   ```
-  npm run tsc:ui
+  pnpm run tsc:ui
   ```
 
 - **tsc:watch**: Watch and compile TypeScript source code for both main and UI.
 
   ```
-  npm run tsc:watch
+  pnpm run tsc:watch
   ```
 
 - **build**: Build the project, minifying the output.
 
   ```
-  npm run build
+  pnpm run build
   ```
 
 - **build:main**: Build the main source code using esbuild.
 
   ```
-  npm run build:main
+  pnpm run build:main
   ```
 
 - **build:ui**: Build the UI using Vite and esbuild.
 
   ```
-  npm run build:ui
+  pnpm run build:ui
   ```
 
 - **build:watch**: Watch and build both the main and UI source code.
 
   ```
-  npm run build:watch
+  pnpm run build:watch
   ```
 
 - **dev**: Concurrently run TypeScript compilation, project builds, and Vite development server.
   ```
-  npm run dev
+  pnpm run dev
   ```
 
 ## Dependencies
@@ -102,7 +102,7 @@ This project has both runtime and development dependencies. Here are the key dep
   - @types/react: TypeScript type definitions for React.
   - @types/react-dom: TypeScript type definitions for React DOM.
   - @vitejs/plugin-react-refresh: Vite plugin for React hot module replacement.
-  - concurrently: Utility to run multiple npm scripts concurrently.
+  - concurrently: Utility to run multiple pnpm scripts concurrently.
   - esbuild: Fast JavaScript bundler and minifier.
   - prettier: Code formatter.
   - typescript: TypeScript compiler.
@@ -116,8 +116,8 @@ To get started with this project, follow these steps:
 
 1. Clone the project repository.
 2. Navigate to the project directory.
-3. Install project dependencies using `npm install`.
-4. Run `npm run dev`
+3. Install project dependencies using `pnpm install`.
+4. Run `pnpm run dev`
 
 Feel free to customize and extend this project to suit your specific needs.
 
