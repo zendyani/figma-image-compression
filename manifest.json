@@ -2,7 +2,7 @@
   "name": "Image minifire",
   "id": "1284557222547216612",
   "api": "1.0.0",
-  "editorType": ["figma", "figjam"],
+  "editorType": ["figma"],
   "permissions": [],
   "main": "dist/code.js",
   "ui": "dist/index.html"
