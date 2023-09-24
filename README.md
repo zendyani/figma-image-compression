@@ -1,6 +1,6 @@
 # Figma plugin to export compressed images 
 
-This GitHub repository serves as a demonstration of creating a Figma plugin using TypeScript, ReactJS, and Vite. 
+This GitHub repository serves as a demonstration of creating a Figma plugin using TypeScript and React. 
 
 For a live demonstration, you can visit the following link: https://www.figma.com/community/plugin/1284557222547216612/image-minifire
 
