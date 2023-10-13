@@ -5,5 +5,9 @@
   "editorType": ["figma"],
   "permissions": [],
   "main": "dist/code.js",
-  "ui": "dist/index.html"
+  "ui": "dist/index.html",
+  "networkAccess": {
+    "allowedDomains": ["https://www.captain-design.com"],
+    "reasoning": "image minifire uses www.captain-design.com as an Image compression service."
+  }
 }
